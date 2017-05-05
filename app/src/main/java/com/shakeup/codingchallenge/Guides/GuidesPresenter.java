@@ -116,8 +116,15 @@ public class GuidesPresenter implements GuidesContract.Presenter {
                 this.endDate = guide.getString("endDate");
                 this.guideUrl = guide.getString("url");
                 this.iconUrl = guide.getString("icon");
-                this.venueCity = guide.getJSONObject("venue").getString("city");
-                this.venueState = guide.getJSONObject("venue").getString("state");
+
+                JSONObject venue = guide.getJSONObject("venue");
+                try{ // It looks like the Venue object is empty
+                    this.venueCity = venue.getString("city");
+                    this.venueState = venue.getString("state");
+                } catch (Exception e){
+                    this.venueCity = "Unknown";
+                    this.venueState = "Unknown";
+                }
 
             } catch(Exception e){
                 Log.d(LOG_TAG, "There was an error parsing the Guide JSONObject.");
