@@ -39,11 +39,17 @@ public class GuidesPresenter implements GuidesContract.Presenter {
 
     @Override
     public void onViewCreated() {
-
         requestData();
-
     }
 
+    public void onResponseParsed(ArrayList<Guide> guides){
+        mGuidesView.loadRecyclerView(guides);
+    }
+
+
+    /**
+     * Requests data from the server and parses it into an ArrayList of Guides.
+     */
     public void requestData() {
         Context context = mGuidesView.getFragmentContext();
 
@@ -80,6 +86,8 @@ public class GuidesPresenter implements GuidesContract.Presenter {
 
                             Log.d(LOG_TAG, "JSON Parsed! Found " + guidesArray.size() + " guides!");
 
+                            // Send the data to the fragment for displaying
+                            onResponseParsed(guidesArray);
 
                         } catch(Exception e){
                             Log.d(LOG_TAG, "There was an error parsing the response.");
