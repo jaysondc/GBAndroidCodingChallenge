@@ -49,11 +49,12 @@ public class GuidesRecyclerAdapter
     public void onBindViewHolder(GuidesViewHolder holder, int position) {
         GuidesPresenter.Guide guide = mGuides.get(position);
 
+        String location = guide.venueCity + ", " + guide.venueState;
+        String dates = guide.startDate + " to " + guide.endDate;
+
         holder.name.setText(guide.guideName);
-        holder.city.setText(guide.venueCity);
-        holder.state.setText(guide.venueState);
-        holder.startDate.setText(guide.startDate);
-        holder.endDate.setText(guide.endDate);
+        holder.location.setText(location);
+        holder.dates.setText(dates);
 
         Glide
                 .with(mContext)
@@ -70,17 +71,15 @@ public class GuidesRecyclerAdapter
      * ViewHolder used to interact with Guide view objects
      */
     class GuidesViewHolder extends RecyclerView.ViewHolder{
-        public TextView name, city, state, startDate, endDate;
+        public TextView name, location, dates;
         public ImageView icon;
 
         public GuidesViewHolder(View itemView) {
             super(itemView);
 
             name = (TextView) itemView.findViewById(R.id.guide_name);
-            city = (TextView) itemView.findViewById(R.id.guide_city);
-            state = (TextView) itemView.findViewById(R.id.guide_state);
-            startDate = (TextView) itemView.findViewById(R.id.guide_start_date);
-            endDate = (TextView) itemView.findViewById(R.id.guide_end_date);
+            location = (TextView) itemView.findViewById(R.id.guide_location);
+            dates = (TextView) itemView.findViewById(R.id.guide_dates);
             icon = (ImageView) itemView.findViewById(R.id.guide_image);
         }
 

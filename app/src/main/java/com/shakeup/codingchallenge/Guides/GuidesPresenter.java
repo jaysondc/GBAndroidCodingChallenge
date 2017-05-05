@@ -130,8 +130,8 @@ public class GuidesPresenter implements GuidesContract.Presenter {
                     this.venueCity = venue.getString("city");
                     this.venueState = venue.getString("state");
                 } catch (Exception e){
-                    this.venueCity = "Unknown";
-                    this.venueState = "Unknown";
+                    this.venueCity = "{city}";
+                    this.venueState = "{state}";
                 }
 
             } catch(Exception e){
