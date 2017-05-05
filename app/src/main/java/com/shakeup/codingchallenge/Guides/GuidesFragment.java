@@ -1,5 +1,6 @@
 package com.shakeup.codingchallenge.Guides;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -35,11 +36,19 @@ public class GuidesFragment extends Fragment implements GuidesContract.View {
 
         mGuidesPresenter = new GuidesPresenter(this);
 
+        // Let our view know the fragment is loaded
+        mGuidesPresenter.onViewCreated();
+
         return root;
     }
 
     @Override
     public void loadRecyclerView(JSONArray guides) {
 
+    }
+
+    @Override
+    public Context getFragmentContext(){
+        return getContext();
     }
 }

@@ -1,5 +1,7 @@
 package com.shakeup.codingchallenge.Guides;
 
+import android.content.Context;
+
 import org.json.JSONArray;
 
 /**
@@ -10,6 +12,8 @@ public interface GuidesContract {
 
     interface View{
         void loadRecyclerView(JSONArray guides);
+
+        Context getFragmentContext();
     }
 
     interface Presenter{
