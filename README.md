@@ -22,5 +22,5 @@ Unfortunately ran past the allotted hour setting up the RecyclerView and ListIte
 ### Techincal Choices/Tradeoffs
  - Spent a lot of time setting up boilerplate code for MVP. It makes apps more testable but for a project like this it isn't necessary. I implemented it demonstrate knowledge, but if I hadn't I might have been able to complete the whole task in an hour.
  - Spent time creating the RecyclerView UI before parsing the JSON, thinking it would save me time to have the layouts ready once I had my objects. It didn't.
-
+ - The Venue City and State data is missing form the JSON response so the only placeholder data is in the UI.
 Overall I think this is a very good challenge that demonstrates coding ability and Android development knowledge.
